@@ -15,4 +15,10 @@ class AppTextStyles {
     fontSize: 20,
     color: AppColors.white70,
   );
+  static TextStyle hintText({Color? color, double fontSize = 16}) {
+    return GoogleFonts.lato(
+      color: color ?? AppColors.textSecondary,
+      fontSize: fontSize,
+    );
+  }
 }
