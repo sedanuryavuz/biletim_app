@@ -1,26 +1,20 @@
-
-import 'package:biletim_app/features/splash/presentation/splash_page.dart';
-
 import 'package:flutter/material.dart';
-
-import 'features/search/presentation/search_page.dart';
+import 'core/routing/app_router.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(BiletimApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class BiletimApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+    return MaterialApp.router(
+      title: 'Biletim App',
+      routerConfig: router,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        primarySwatch: Colors.blue,
       ),
-      home: const SearchPage(),
     );
   }
 }

@@ -16,6 +16,9 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   DateTime _selectedDate = DateTime.now();
 
+  String selectedFrom = '';
+  String selectedTo = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,7 +44,15 @@ class _SearchPageState extends State<SearchPage> {
                     style: AppTextStyles.headerBottomText,
                   ),
                   const SizedBox(height: 40),
-                  LocationInput(),
+                  LocationInput(
+                    onFromSelected: (value) {
+                      setState(() => selectedFrom = value!.name);
+                    },
+                    onToSelected: (value) {
+                      setState(() => selectedTo = value!.name);
+                    },
+                  ),
+
                   const SizedBox(height: 20),
                   DateSelectionWidget(
                     initialDate: _selectedDate,
@@ -50,7 +61,11 @@ class _SearchPageState extends State<SearchPage> {
                     },
                   ),
                   const SizedBox(height: 20),
-                  const SearchButton(),
+                  SearchButton(
+                    from: selectedFrom,
+                    to: selectedTo,
+                    date: _selectedDate,
+                  ),
                 ],
               ),
             ),

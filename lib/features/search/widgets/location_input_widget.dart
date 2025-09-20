@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'dropdown_field_widget.dart';
 
 class LocationInput extends StatefulWidget {
-  const LocationInput({super.key});
+  final ValueChanged<City?>? onFromSelected;
+  final ValueChanged<City?>? onToSelected;
+
+  const LocationInput({super.key, this.onFromSelected, this.onToSelected});
 
   @override
   State<LocationInput> createState() => _LocationInputState();
@@ -39,11 +42,13 @@ class _LocationInputState extends State<LocationInput> {
             icon: Icons.location_on,
             value: _selectedFrom,
             items: _cities,
-            onChanged: (value) => setState(() => _selectedFrom = value),
+            onChanged: (value) {
+              setState(() => _selectedFrom = value);
+              if (widget.onFromSelected != null) widget.onFromSelected!(value);
+            },
           ),
         ),
         const SizedBox(height: 20),
-
         Container(
           padding: const EdgeInsets.all(16.0),
           decoration: _boxDecoration(),
@@ -52,7 +57,10 @@ class _LocationInputState extends State<LocationInput> {
             icon: Icons.backpack_rounded,
             value: _selectedTo,
             items: _cities,
-            onChanged: (value) => setState(() => _selectedTo = value),
+            onChanged: (value) {
+              setState(() => _selectedTo = value);
+              if (widget.onToSelected != null) widget.onToSelected!(value);
+            },
           ),
         ),
       ],
