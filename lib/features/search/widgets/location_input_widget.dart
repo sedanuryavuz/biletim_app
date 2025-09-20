@@ -1,6 +1,5 @@
 import 'package:biletim_app/features/search/enums/city.dart';
 import 'package:flutter/material.dart';
-import '../../../core/constants/app_colors.dart';
 
 import 'dropdown_field_widget.dart';
 
@@ -17,44 +16,46 @@ class _LocationInputState extends State<LocationInput> {
 
   final List<City> _cities = City.values;
 
+  BoxDecoration _boxDecoration() {
+    return BoxDecoration(
+      color: Colors.white.withOpacity(0.20),
+      borderRadius: BorderRadius.circular(16),
+      border: Border.all(
+        color: Colors.white.withOpacity(0.3),
+        width: 1,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(20.0),
-      decoration: BoxDecoration(
-        color: AppColors.cardColor,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            spreadRadius: 5,
-            blurRadius: 15,
-            offset: const Offset(0, 8),
-          ),
-        ],
-      ),
-      child: Column(
-        children: [
-          DropdownField<City>(
+    return Column(
+      children: [
+        Container(
+          padding: const EdgeInsets.all(16.0),
+          decoration: _boxDecoration(),
+          child: DropdownField<City>(
             label: 'Nereden?',
-            icon: Icons.flight_takeoff,
+            icon: Icons.location_on,
             value: _selectedFrom,
             items: _cities,
             onChanged: (value) => setState(() => _selectedFrom = value),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 16.0),
-            child: Divider(height: 1, color: AppColors.background),
-          ),
-          DropdownField<City>(
+        ),
+        const SizedBox(height: 20),
+
+        Container(
+          padding: const EdgeInsets.all(16.0),
+          decoration: _boxDecoration(),
+          child: DropdownField<City>(
             label: 'Nereye?',
-            icon: Icons.flight_land,
+            icon: Icons.backpack_rounded,
             value: _selectedTo,
             items: _cities,
             onChanged: (value) => setState(() => _selectedTo = value),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

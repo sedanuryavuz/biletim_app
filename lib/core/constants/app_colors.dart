@@ -9,6 +9,8 @@ class AppColors {
   static const Color textPrimary = Color(0xFF212121);
   static const Color textSecondary = Color(0xFF757575);
   static const Color white = Color(0xFFFFFFFF);
+  static const Color black = Color(0xFF000000);
+  static const Color button = Color(0xF01173d4);
   static final Color white70 = Colors.white.withOpacity(0.7);
 
 }

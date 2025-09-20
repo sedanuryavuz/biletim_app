@@ -1,3 +1,4 @@
+import 'package:biletim_app/core/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -8,10 +9,10 @@ class DateSelectionWidget extends StatefulWidget {
   final ValueChanged<DateTime> onDateSelected;
 
   const DateSelectionWidget({
-    Key? key,
+    super.key,
     required this.initialDate,
     required this.onDateSelected,
-  }) : super(key: key);
+  });
 
   @override
   State<DateSelectionWidget> createState() => _DateSelectionWidgetState();
@@ -60,41 +61,38 @@ class _DateSelectionWidgetState extends State<DateSelectionWidget> {
         duration: const Duration(milliseconds: 300),
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
         decoration: BoxDecoration(
-          color: AppColors.cardColor,
+          color: Colors.white.withOpacity(0.40),
           borderRadius: BorderRadius.circular(20),
+          border: Border.all(color: Colors.white.withOpacity(0.3), width: 1),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.1),
-              spreadRadius: 5,
-              blurRadius: 15,
-              offset: const Offset(0, 8),
+              color: Colors.black26.withOpacity(0.08),
+              blurRadius: 12,
+              offset: const Offset(0, 6),
             ),
           ],
         ),
+
         child: Row(
           children: [
-            const Icon(Icons.calendar_today, color: AppColors.accent, size: 28),
-            const SizedBox(width: 20),
+            const Icon(Icons.calendar_today, color: AppColors.button, size: 28),
+            const SizedBox(width: 16),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Tarih Seç',
-                    style: GoogleFonts.lato(
-                        color: AppColors.textSecondary, fontSize: 14)),
-                const SizedBox(height: 6),
+                Text('Tarih Seç', style: AppTextStyles.inputText),
                 Text(
                   '${_selectedDate.day}/${_selectedDate.month}/${_selectedDate.year}',
-                  style: GoogleFonts.montserrat(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.textPrimary,
-                  ),
+                  style:AppTextStyles.selectedText
                 ),
               ],
             ),
             const Spacer(),
-            const Icon(Icons.arrow_forward_ios,
-                color: AppColors.textSecondary, size: 18),
+            const Icon(
+              Icons.arrow_forward_ios,
+              color: AppColors.button,
+              size: 18,
+            ),
           ],
         ),
       ),

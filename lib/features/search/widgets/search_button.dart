@@ -4,7 +4,7 @@ import '../../../core/constants/app_colors.dart';
 
 
 class SearchButton extends StatelessWidget {
-  const SearchButton({Key? key}) : super(key: key);
+  const SearchButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,11 +13,11 @@ class SearchButton extends StatelessWidget {
 
       },
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.accent,
-        padding: const EdgeInsets.symmetric(vertical: 20),
+        backgroundColor: AppColors.button,
+        padding: const EdgeInsets.symmetric(vertical: 20,horizontal: 145),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         elevation: 8,
-        shadowColor: AppColors.accent.withOpacity(0.4),
+        shadowColor: AppColors.button.withOpacity(0.4),
       ),
       child: Text(
         'Bilet Ara',
