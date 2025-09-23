@@ -1,3 +1,4 @@
+import 'package:biletim_app/core/constants/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -33,11 +34,7 @@ class SearchButton extends StatelessWidget {
       ),
       child: Text(
         'Bilet Ara',
-        style: GoogleFonts.montserrat(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          color: Colors.white,
-        ),
+        style: AppTextStyles.buttonStyle,
       ),
     );
   }

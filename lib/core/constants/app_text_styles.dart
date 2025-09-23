@@ -36,11 +36,17 @@ class AppTextStyles {
     fontWeight: FontWeight.bold,
     color: AppColors.textPrimary,
   );
+  static final TextStyle buttonStyle = GoogleFonts.montserrat(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: AppColors.white
+  );
   static TextStyle hintText({Color? color, double fontSize = 16}) {
     return GoogleFonts.lato(
       color: color ?? AppColors.textSecondary,
       fontSize: fontSize,
     );
+
 
   }
 }

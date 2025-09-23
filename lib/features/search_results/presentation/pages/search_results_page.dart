@@ -1,3 +1,4 @@
+import 'package:biletim_app/features/search_results/domain/enums/bus_feature.dart';
 import 'package:flutter/material.dart';
 
 import '../../domain/entities/bus_result.dart';
@@ -20,6 +21,7 @@ class SearchResultsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final BusFeature busFeature;
     return Scaffold(
       appBar: AppBar(
         title: Text("$from → $to | ${date.day}/${date.month}/${date.year}"),
@@ -45,6 +47,7 @@ class SearchResultsPage extends StatelessWidget {
                 onSelect: () {
                   // Koltuk seçimi/ödeme ekranına gidecek
                 },
+
               );
             },
           );
